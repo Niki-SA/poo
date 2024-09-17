@@ -24,4 +24,13 @@ public class Inventario {
             System.out.println("ID: " + i + ", Nombre: " + producto.getNombre() + ", Precio: " + producto.getPrecio() + ", Descripción: " + producto.getDescripcion() + ", Categoría: " + producto.getCategoria() + ", Stock: " + producto.getStock());
         }
     }
+
+    public Producto obtenerProductoPorNombre(String nombre) {
+        for (Producto producto : productos) {
+            if (producto.getNombre().equalsIgnoreCase(nombre)) {
+                return producto;
+            }
+        }
+        return null;
+    }
 }

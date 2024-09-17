@@ -24,7 +24,12 @@ public class Producto {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        if (nombre != null) {
+            this.nombre = nombre;
+        } else {
+            System.out.println("El nombre no puede ser nulo.");
+        }
+
     }
 
     public double getPrecio() {

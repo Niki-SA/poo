@@ -9,12 +9,15 @@ public class Main {
 
         int opcion = 0;
 
-        while (opcion != 4) {
+        while (opcion != 6) {
             System.out.println("\n*** BIENVENIDO ***");
             System.out.println("1. Registrar producto");
             System.out.println("2. Eliminar producto");
             System.out.println("3. Mostrar productos");
-            System.out.println("4. Salir");
+            System.out.println("4. Aumentar stock");
+            System.out.println("5. Reducir stock");
+
+            System.out.println("6. Salir");
 
             System.out.print("Selecciona una opción: ");
             opcion = scanner.nextInt();
@@ -61,7 +64,32 @@ public class Main {
                 case 3:
                     inventario.mostrarProductos();
                     break;
-                case 4:
+                case 4: 
+                System.out.print("Ingresa el nombre del producto: ");
+                String nombreProductoAumentar = scanner.nextLine();
+                Producto productoAumentar = inventario.obtenerProductoPorNombre(nombreProductoAumentar);
+                if (productoAumentar != null) {
+                    System.out.print("Ingrese la cantidad a aumentar: ");
+                    int cantidadAumentar = scanner.nextInt();
+                    productoAumentar.aumentarStock(cantidadAumentar);
+                } else {
+                    System.out.println("Producto no encontrado.");
+                }
+                break;
+                case 5: 
+                System.out.print("Ingresa el nombre del producto: ");
+                String nombreProductoReducir = scanner.nextLine();
+                Producto productoReducir = inventario.obtenerProductoPorNombre(nombreProductoReducir);
+                if (productoReducir != null) {
+                    System.out.print("Ingrese la cantidad a reducir: ");
+                    int cantidadReducir = scanner.nextInt();
+                    productoReducir.reducirStock(cantidadReducir);
+                } else {
+                    System.out.println("Producto no encontrado.");
+                }
+                break;
+
+                case 6:
                     System.out.println("Hasta luego");
                     break;
                 default:
