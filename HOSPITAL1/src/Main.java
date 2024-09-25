@@ -3,6 +3,8 @@ import hospital.Hospital;
 import medicos.Medico;
 import paciente.Paciente;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
@@ -43,9 +45,14 @@ public class Main {
                     String apellido = sc.nextLine();
                     sc.nextLine();
 
-                    System.out.println("Ingrese la fecha de nacimiento del paciente: ");
-                    String fechaNacimiento = sc.nextLine();
-                    sc.nextLine();
+                    System.out.println("Infresa año de nacimiento: ");
+                    int  anio = sc.nextInt();
+                    System.out.println("Ingrese el mes de nacimiento: ");
+                    int  mes = sc.nextInt();
+                    System.out.println("Ingresa sia de nacimiento:");
+                    int  dia = sc.nextInt();
+
+                    LocalDate fechaNacimiento = LocalDate.of(anio, mes, dia);
 
                     System.out.println("Ingrese el tipo de sangre del paciente: ");
                     String tipoSangre = sc.nextLine();
@@ -77,9 +84,13 @@ public class Main {
                     String apellidoMedico = sc.nextLine();
                     sc.nextLine();
 
-                    System.out.println("Ingrese la fecha de nacimiento del medico(DDMMYYYY): ");
-                    String fechaNacimientoMedico = sc.nextLine();
-                    sc.nextLine();
+                    System.out.println("Infresa año de nacimiento: ");
+                    int  anioMedico = sc.nextInt();
+                    System.out.println("Ingrese el mes de nacimiento: ");
+                    int  mesMedico = sc.nextInt();
+                    System.out.println("Ingresa sia de nacimiento:");
+                    int  diaMedico = sc.nextInt();
+                    LocalDate fechaNacimientoMedico = LocalDate.of(anioMedico, mesMedico, diaMedico);
 
                     System.out.println("Ingrese el telefono del medico: ");
                     String telefonoMedico = sc.nextLine();
@@ -111,6 +122,30 @@ public class Main {
                     hospital.registrarConsultorios(consultorio);
                     break;
                 case 4:
+                    System.out.println("\nSeleccionaste la opcion de para registrar consulta");
+                    // int id = 1;
+
+                    System.out.println("Ingresa el dia de la consulta deseada");
+                    int diaConsulta = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.println("Ingresa el mes de la consulta deseada");
+                    int mesConsulta = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.println("Ingresa el anio de la consulta deseada");
+                    int anioConsulta = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.println("Ingresa la hora de la consulta deseada");
+                    int horaConsulta = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Ingresa los minutos de la consulta deseada");
+                    int minutosConsulta = sc.nextInt();
+                    sc.nextLine();
+
+                    LocalDateTime fechaConsulta = LocalDateTime.of(anioConsulta, mesConsulta, diaConsulta,horaConsulta,minutosConsulta);
+
                     break;
                 case 5:
                     System.out.println("A elegido la opcion MOSTRAR PACIENTES");

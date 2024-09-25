@@ -88,6 +88,9 @@ public class Hospital {
 
     }
 
+    public Paciente obtenerPacientePorId(String Paciente){
+        return listaPacientes.stream().filter(paciente -> paciente.getId().equals(Paciente)).findFirst().orElse(null);
+    }
     public void mostrarPacientePorId(String id) {
 
         for (Paciente paciente : this.listaPacientes) {
@@ -107,6 +110,7 @@ public class Hospital {
         Random random = new Random();
         int numeroAleatorio = 50 + random.nextInt(700000 - 50);
         int longitudMedicosMasUno = this.listaMedicos.size() + 1;
+        String anioEnCadena =  String.valueOf();
         char ultimoDigitoNacimiento = medico.fechaNacimiento.charAt(7);
         String primerasLetrasApellido = medico.apellidos.substring(0, 2).toUpperCase();
         String id = String.format("M%s%c%d%d%d", primerasLetrasApellido, ultimoDigitoNacimiento, anoActual, numeroAleatorio, longitudMedicosMasUno);
